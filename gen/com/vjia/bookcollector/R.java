@@ -35,12 +35,11 @@ public final class R {
     }
     public static final class id {
         public static final int about_version_code=0x7f07000e;
-        public static final int action_settings=0x7f07001d;
+        public static final int action_settings=0x7f07001c;
         /**  Messages IDs 
          */
         public static final int auto_focus=0x7f070000;
         public static final int book_isbn=0x7f070019;
-        public static final int button1=0x7f07001b;
         public static final int button_back=0x7f070016;
         public static final int decode=0x7f070001;
         public static final int decode_failed=0x7f070002;
@@ -54,7 +53,7 @@ public final class R {
         public static final int main2_show_booklist=0x7f070015;
         public static final int main2_start_scan=0x7f070014;
         public static final int preview_view=0x7f070010;
-        public static final int qrcode_bitmap_after_scan=0x7f07001c;
+        public static final int qrcode_bitmap_after_scan=0x7f07001b;
         public static final int quit=0x7f070007;
         public static final int restart_preview=0x7f070008;
         public static final int result_info=0x7f07001a;
