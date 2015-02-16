@@ -17,6 +17,15 @@ public class BookEntity {
 	private String pubdate;
 	private String tags;
 
+	public BookEntity(){
+		
+	}
+	
+	public BookEntity(String title, String author){
+		this.title=title;
+		this.author=author;
+	}
+	
 	public String getTitle() {
 		return title;
 	}
