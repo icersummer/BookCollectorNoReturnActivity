@@ -1,5 +1,10 @@
 package com.vjia.bookcollector;
 
+import java.io.IOException;
+
+import com.vjia.bookcollector.isbn.IsbnFileUtils;
+import com.vjia.bookcollector.isbn.IsbnLocator;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -38,10 +43,20 @@ public class BookInfoActivity extends Activity {
 		
 		Log.d(CLASSNAME, String.format("s_book_isbn=%s, p_bitmap_parcelable=%s", s_book_isbn, p_bitmap_parcelable));
 
+		// show the needed info in the UI
 		book_isbn.setText(s_book_isbn);
 		result_info.setText(s_book_isbn);
 		qrcode_bitmap_after_scan.setImageBitmap(p_bitmap_parcelable);
 
+		// query ISBN via douban, store in local disk csv
+		String generatedCsvName = queryAndStore(s_book_isbn);
+		if(null != generatedCsvName){
+			// TODO prompt into a Pop message, like alert
+			
+		}
+		
+		//TODO another good way to add Linstener
+		// action handler for Return button
 		return_to_home.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -51,7 +66,36 @@ public class BookInfoActivity extends Activity {
 				startActivity(intent);
 			}
 		});
-
 	}
+
+	private String queryAndStore(String isbn) {
+		// TODO Auto-generated method stub
+		try {
+			String bookXML = IsbnLocator.fetchBookInfoByXML(isbn);
+			String generatedCsvName = IsbnFileUtils.generateResultInCsvInDisk(bookXML, this);
+			return generatedCsvName;
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+    private View.OnClickListener listener = new OnClickListener() {  
+        public void onClick(View v) {  
+            Button view = (Button) v;  
+            switch (view.getId()) {  
+            case R.id.about_version_code:  // button 1
+//                save();  
+                break;  
+            case R.id.action_settings:  // button 2
+//                read();  
+                break;  
+  
+            }  
+  
+        }  
+  
+    };  
 
 }

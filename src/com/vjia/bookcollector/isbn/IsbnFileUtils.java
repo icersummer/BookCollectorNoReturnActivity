@@ -1,8 +1,12 @@
 package com.vjia.bookcollector.isbn;
 
 import java.lang.reflect.Field;
+import java.util.List;
+
+import android.app.Activity;
 
 import com.vjia.bookcollector.pojo.BookEntity;
+import com.vjia.bookcollector.util.CsvWriterUtil;
 import com.vjia.bookcollector.util.FileWriterUtil;
 
 
@@ -52,10 +56,34 @@ public class IsbnFileUtils {
 		//TODO
 	}
 	
+
+	/**
+	 * @param xml
+	 * @param bookInfoActivity 
+	 * @return generate csv name
+	 */
+	public static String generateResultInCsvInDisk(String xml, Activity activity) {
+		// TODO Auto-generated method stub
+		BookEntity book = extractBookInfo(xml);
+		
+		String fileName = CsvWriterUtil.createAndPersisteFile(book, activity);
+		
+		// return a FLAG, and to prompt user of : success
+		//TODO
+		return fileName;
+	}
+	
 	private static BookEntity extractBookInfo(String xml) {
 		// TODO Auto-generated method stub
-		return null;
+		BookEntity book = new BookEntity();
+		book.setAuthor("Mark Twin");
+		book.setIsbn13("909090909765");
+		book.setLink("http://google.com/vj");
+		book.setPrice("$100");
+		
+		return book;
 	}
+	
 	public static void main(String[] args) {
 		IsbnFileUtils main = new IsbnFileUtils();
 		main.testReflect("");

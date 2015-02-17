@@ -9,8 +9,12 @@ import android.widget.ListView;
 
 import com.vjia.bookcollector.adapter.BookAdapter;
 import com.vjia.bookcollector.pojo.BookEntity;
+import com.vjia.bookcollector.util.CsvReaderUtil;
 
 public class BookListActivity extends Activity {
+	
+	// whether we're doing a testing or run as real
+	private boolean testing = true;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +23,7 @@ public class BookListActivity extends Activity {
 		this.setContentView(R.layout.book_list);
 		
 		// prepare the BookList data
-		List<BookEntity> lists = buildFakeBooks();
+		List<BookEntity> lists = buildBookList();
 		// build ListView & Adapter
 		BookAdapter adapter = new BookAdapter(lists, this);
 		ListView lv = (ListView) findViewById(R.id.lv);
@@ -29,6 +33,18 @@ public class BookListActivity extends Activity {
 		
 	}
 
+	private List<BookEntity> buildBookList() {
+		// TODO Auto-generated method stub
+		if(testing) {
+			return buildFakeBooks();
+		}
+		
+		List<BookEntity> books = CsvReaderUtil.readBookCsvs(this);
+		
+		return books;
+	}
+
+	@Deprecated
 	private List<BookEntity> buildFakeBooks() {
 		// TODO Auto-generated method stub
 		List<BookEntity> list = new ArrayList<BookEntity>();
