@@ -6,6 +6,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
+import java.net.UnknownHostException;
 
 import android.util.Log;
 
@@ -35,23 +36,34 @@ public class IsbnLocator {
 	 * @throws IOException  
 	 */  
 	public static String fetchBookInfoByXML(String isbnNo) throws IOException  {  
-	    String requestUrl = isbnUrl + isbnNo + "?apikey=" + apikey;  
-	    Log.d(CLASSNAME, "requestURL to douban is : " +requestUrl);
-	    URL url = new URL(requestUrl);  
-	    URLConnection conn = url.openConnection();  
-	    InputStream is = conn.getInputStream();  
-	    InputStreamReader isr = new InputStreamReader(is, "utf-8");  
-	    BufferedReader br = new BufferedReader(isr);  
-	    StringBuilder sb = new StringBuilder();  
-	      
-	    String line = null;  
-	    while ((line = br.readLine()) != null) {  
-	        sb.append(line);  
-	    }  
-	      
-	    br.close();  
-	    Log.d(CLASSNAME, "the return of douban API is :\n"+sb.toString());
-	    return sb.toString();  
+		// try-catch here:
+		// to catch the exception that the device(Phone) doesn't connect to internet;
+		// correction of this: connect gprs; or connect wifi; or connect iphone's share wlan.
+	    try {
+			String requestUrl = isbnUrl + isbnNo + "?apikey=" + apikey;  
+			Log.d(CLASSNAME, "requestURL to douban is : " +requestUrl);
+			URL url = new URL(requestUrl);  
+			URLConnection conn = url.openConnection();  
+			InputStream is = conn.getInputStream();  
+			InputStreamReader isr = new InputStreamReader(is, "utf-8");  
+			BufferedReader br = new BufferedReader(isr);  
+			StringBuilder sb = new StringBuilder();  
+			  
+			String line = null;  
+			while ((line = br.readLine()) != null) {  
+			    sb.append(line);  
+			}  
+			  
+			br.close();  
+			Log.d(CLASSNAME, "the return of douban API is :\n"+sb.toString());
+			return sb.toString();
+		} catch (UnknownHostException e) {
+			// TODO Auto-generated catch block
+			Log.e(CLASSNAME, "=== The network is not available to get internet resource !!");
+			e.printStackTrace();
+		}  
+	    
+	    return null;
 	}  
 
 
