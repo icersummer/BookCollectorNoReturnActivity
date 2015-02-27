@@ -52,7 +52,7 @@ public class IsbnLocator {
 			String line = null;  
 			while ((line = br.readLine()) != null) {  
 			    sb.append(line);  
-			}  
+			}
 			  
 			br.close();  
 			Log.d(CLASSNAME, "the return of douban API is :\n"+sb.toString());
@@ -61,7 +61,7 @@ public class IsbnLocator {
 			// TODO Auto-generated catch block
 			Log.e(CLASSNAME, "=== The network is not available to get internet resource !!");
 			e.printStackTrace();
-		}  
+		}
 	    
 	    return null;
 	}  

@@ -1,21 +1,31 @@
 package com.vjia.bookcollector.isbn;
 
 import java.lang.reflect.Field;
-import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import android.app.Activity;
+import android.util.Log;
 
 import com.vjia.bookcollector.pojo.BookEntity;
 import com.vjia.bookcollector.util.CsvWriterUtil;
 import com.vjia.bookcollector.util.FileWriterUtil;
+import com.vjia.bookcollector.util.XmlExtractorUtil;
 
 
 public class IsbnFileUtils {
 
+	/**
+	 * the flag : if current code has the real abailabilty to extract book info from douban API response xml.
+	 */
+	private static final boolean TEST_MODE = false;
+	private static final String CLASSNAME = IsbnFileUtils.class.getName();
+	
 	/*
 	 * java 7, has a java.beans.PropertyDescriptor
 	 */
 	
+
 	/**
 	 * refer : http://docs.oracle.com/javase/tutorial/reflect/member/fieldValues.html
 	 * @param xml
@@ -75,15 +85,33 @@ public class IsbnFileUtils {
 	
 	private static BookEntity extractBookInfo(String xml) {
 		// TODO Auto-generated method stub
-		BookEntity book = new BookEntity();
-		book.setAuthor("Mark Twin");
-		book.setIsbn13("909090909765");
-		book.setLink("http://google.com/vj");
-		book.setPrice("$100");
+		if(TEST_MODE) {
+			Log.i(CLASSNAME, "!! now is TEST_MODE of extractBookInfo !!");
+			BookEntity book = new BookEntity();
+			book.setAuthor("Mark Twin");
+			book.setIsbn13("909090909765");
+			book.setLink("http://google.com/vj");
+			book.setPrice("$100");
+			return book;
+		} else {
+			Map<String, String> xmlMap = XmlExtractorUtil.getMapFromXml(xml);
+			BookEntity book = new BookEntity();
+			transformToBookEntity(book, xmlMap);
+			return null;
+		}
 		
-		return book;
 	}
 	
+	/**
+	 * map format : { key1 : v1, v2; key2 : v } <br/>
+	 * @param book
+	 * @param xmlMap
+	 */
+	private static void transformToBookEntity(BookEntity book, final Map<String, String> map) {
+		// TODO Auto-generated method stub
+		Set<String> keys = map.keySet();
+		
+	}
 	public static void main(String[] args) {
 		IsbnFileUtils main = new IsbnFileUtils();
 		main.testReflect("");
