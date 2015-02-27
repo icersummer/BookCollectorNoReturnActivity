@@ -114,4 +114,11 @@ public class BookEntity {
 		this.tags = tags;
 	}
 
+	@Override
+	public String toString() {
+		// TODO update toString() more clearly
+		String str = String.format("%n title=%s,%n author=%s,%n isbn13=%s,%n link=%s,%n price=%s%n", title,author,isbn13,link,price);
+		return super.toString() + str;
+	}
+
 }

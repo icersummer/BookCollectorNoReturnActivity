@@ -85,21 +85,20 @@ public class IsbnFileUtils {
 	
 	private static BookEntity extractBookInfo(String xml) {
 		// TODO Auto-generated method stub
+		BookEntity book = new BookEntity();
 		if(TEST_MODE) {
 			Log.i(CLASSNAME, "!! now is TEST_MODE of extractBookInfo !!");
-			BookEntity book = new BookEntity();
 			book.setAuthor("Mark Twin");
 			book.setIsbn13("909090909765");
 			book.setLink("http://google.com/vj");
 			book.setPrice("$100");
-			return book;
 		} else {
 			Map<String, String> xmlMap = XmlExtractorUtil.getMapFromXml(xml);
-			BookEntity book = new BookEntity();
 			transformToBookEntity(book, xmlMap);
-			return null;
+			Log.e(CLASSNAME, "book=" + book);
 		}
 		
+		return book;
 	}
 	
 	/**
@@ -110,7 +109,24 @@ public class IsbnFileUtils {
 	private static void transformToBookEntity(BookEntity book, final Map<String, String> map) {
 		// TODO Auto-generated method stub
 		Set<String> keys = map.keySet();
+		for(String key:keys){
+			//TODO
+		}
+		//TODO now to set title, author, isbn13, link, price
+		String title = map.get("title");
+		String author = map.get("author");
+		String isbn13AndPrice = map.get("db:attribute");// isbn, price
+		String link = map.get("link");
 		
+		int idx = isbn13AndPrice.indexOf(",");
+		String isbn13 = isbn13AndPrice.substring(0, idx);
+		String price = isbn13AndPrice.substring(idx + 1);
+		
+		book.setTitle(title);
+		book.setAuthor(author);
+		book.setIsbn13(isbn13);
+		book.setLink(link);
+		book.setPrice(price);
 	}
 	public static void main(String[] args) {
 		IsbnFileUtils main = new IsbnFileUtils();
