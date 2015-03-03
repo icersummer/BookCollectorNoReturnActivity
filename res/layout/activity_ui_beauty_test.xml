@@ -21,15 +21,44 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="导出图书信息" />
-
+<!-- comment as it alway try to get focused
     <EditText
         android:id="@+id/editText1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10" 
         android:text="点击开始输入">
-
-        <requestFocus />
     </EditText>
+ -->
 
+
+    
+    <ImageView 
+        android:id="@+id/iv_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="5dip"
+        android:src="@drawable/ic_launcher" />
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/iv_icon"
+        android:layout_marginTop="5dip"
+        android:layout_marginBottom="5dip"
+        android:textColor="#404040"
+        android:textSize="16dip"
+        android:gravity="center"
+        android:paddingLeft="10dip"
+        android:background="@drawable/chatfrom_bg_normal"
+        android:drawableLeft="@drawable/chatfrom_group_voice_playing_f3"
+        android:text="Button4" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button" />
 </LinearLayout>
