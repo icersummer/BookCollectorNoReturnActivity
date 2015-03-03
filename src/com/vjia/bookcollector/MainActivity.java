@@ -17,6 +17,14 @@ import android.widget.TextView;
 public class MainActivity extends Activity {
 	
 	private final static String CLASSNAME = MainActivity.class.getName();
+	
+	// int[] array to store IMAGEs
+	private int[] photo = {R.drawable.nav_menu_home_ph, R.drawable.nav_menu_hot_ph,
+			R.drawable.nav_menu_category_ph,R.drawable.nav_menu_like_ph};
+	private int[] photoSelected = {R.drawable.nav_menu_home_selected_ph,
+			R.drawable.nav_menu_hot_selected_ph,
+			R.drawable.nav_menu_category_active_ph,
+			R.drawable.nav_menu_like_active_ph};
 		
 
 	@Override
@@ -46,7 +54,17 @@ public class MainActivity extends Activity {
 				startActivity(intent);
 			}
 		});
-
+		
+		// test button to go to UI test layout
+		Button ui_test_button = (Button) findViewById(R.id.ui_test_button);
+		ui_test_button.setOnClickListener(new OnClickListener(){
+			@Override
+			public void onClick(View arg0) {
+				Intent intent = new Intent();
+				intent.setClass(MainActivity.this, UITestActivity.class);
+				startActivity(intent);
+			}
+		});
 	}
 	
 

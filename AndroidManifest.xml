@@ -50,6 +50,9 @@
             android:name=".BookListActivity"
             ></activity>
         
+        <activity 
+            android:name="com.vjia.bookcollector.UITestActivity" />
+        
     </application>
     
     

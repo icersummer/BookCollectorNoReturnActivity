@@ -34,4 +34,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Copyright : 2015 todo" />
+    
+    <!-- entrance to UI test layout -->
+    <Button
+        android:id="@+id/ui_test_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="点击调试UI"
+        android:layout_gravity="center_vertical"
+        />
+    
 </LinearLayout>
