@@ -23,7 +23,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
         android:layout_margin="5dip"
         android:layout_below="@+id/main2_label"
         android:src="@drawable/ic_launcher"
@@ -45,7 +44,15 @@
         android:text="Scan the QR code"
         />
     
-
+    <ImageView
+        android:id="@+id/iv_icon_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_margin="5dip"
+        android:layout_below="@+id/iv_icon"
+        android:src="@drawable/ic_launcher"
+         />
 
     <!-- button to show Stored Books' list info -->
 
@@ -53,17 +60,40 @@
         android:id="@+id/main2_show_booklist"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/iv_icon_2"
+        android:layout_marginTop="5dip"
+        android:layout_marginBottom="5dip"
         android:layout_below="@+id/main2_start_scan"
+        android:textColor="#404040"
+        android:textSize="16dip"
+        android:gravity="center"
+        android:background="@drawable/chatfrom_bg_normal"
         android:text="Show All Books" />
 
+
+    
     <!-- Label of showing Copyright -->
 
     <TextView
         android:id="@+id/static_copyright_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dip"
+        android:layout_marginBottom="5dip"
+        android:layout_marginLeft="30sp"
         android:layout_below="@+id/main2_show_booklist"
-        android:text="Copyright : 2015 todo" />
+        android:text="Copyright : 2015 TODO" />
+    
+        
+    <ImageView
+        android:id="@+id/iv_icon_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_margin="5dip"
+        android:layout_below="@+id/static_copyright_tv"
+        android:src="@drawable/ic_launcher"
+         />
     
     <!-- entrance to UI test layout -->
     <Button
@@ -73,8 +103,19 @@
         android:text="点击调试UI"
         android:layout_gravity="center_vertical"
         android:layout_below="@+id/static_copyright_tv"
+        android:layout_toRightOf="@+id/iv_icon_3"
         />
     
+    
+    <ImageView
+        android:id="@+id/iv_icon_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_margin="5dip"
+        android:layout_below="@+id/iv_icon_3"
+        android:src="@drawable/ic_launcher"
+         />
     <!-- entrance to UI Relative Layout test   -->
     <Button
         android:id="@+id/ui_relative_layout_test_button"
@@ -83,6 +124,7 @@
         android:text="点击查看Relative Layout UI"
         android:layout_gravity="center_vertical"
         android:layout_below="@+id/ui_test_button"
+        android:layout_toRightOf="@+id/iv_icon_4"
         />
     
 </RelativeLayout>
