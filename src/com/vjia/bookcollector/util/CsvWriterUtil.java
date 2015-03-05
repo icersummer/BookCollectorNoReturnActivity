@@ -1,6 +1,7 @@
 package com.vjia.bookcollector.util;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
@@ -9,7 +10,6 @@ import java.lang.reflect.Field;
 
 import android.app.Activity;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.vjia.bookcollector.pojo.BookEntity;
 
@@ -48,6 +48,9 @@ public class CsvWriterUtil {
 			return null;
 
 		String fileName = book.getIsbn13() + ".csv";
+		boolean fileExisted = isExistedInAppFiles(fileName, activity);
+		if (fileExisted)
+			Log.d(CLASSNAME, "File is already existed : " + fileName );
 		String fileContent = getFileContentInPropertiesFormat(book);
         try {  
             /* 根据用户提供的文件名，以及文件的应用模式，打开一个输出流.文件不存系统会为你创建一个的， 
@@ -79,6 +82,24 @@ public class CsvWriterUtil {
 		
 	}
 	
+	/**
+	 * check if the file with fileName is already existing
+	 * @param fileName
+	 * @param activity 
+	 * @return
+	 * @throws FileNotFoundException 
+	 */
+	private static boolean isExistedInAppFiles(String fileName, Activity activity){
+		try {
+			FileInputStream inputStream = activity.openFileInput(fileName);
+			return true;
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+			Log.w(CLASSNAME, e);
+			return false;
+		}
+	}
+
 	/**
 	 * return the generated file_name, name it as *.csv (comma separated values) <br/>
 	 * ex.
