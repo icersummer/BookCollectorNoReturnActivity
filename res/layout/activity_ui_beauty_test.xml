@@ -31,7 +31,6 @@
     </EditText>
  -->
 
-
     
     <ImageView 
         android:id="@+id/iv_icon"
@@ -41,6 +40,22 @@
         android:layout_alignParentTop="true"
         android:layout_margin="5dip"
         android:src="@drawable/ic_launcher" />
+    
+
+        <Button 
+        android:id="@+id/btn_left_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/iv_icon"
+        android:layout_marginTop="5dip"
+        android:layout_marginBottom="5dip"
+        android:textColor="#AAAAAA"
+        android:textSize="16dip"
+        android:gravity="center"
+        android:background="@drawable/chatfrom_bg_normal"
+        android:text="哈哈哈 看不见了"
+        />
+        
     <Button
         android:id="@+id/button4"
         android:layout_width="wrap_content"
@@ -93,4 +108,31 @@
         android:gravity="center"
         android:background="@drawable/chatto_bg_normal"
         />
+    
+    <Button 
+        android:id="@+id/btn_right_audio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/iv_icon"
+        android:layout_marginTop="5dip"
+        android:layout_marginBottom="5dip"
+        android:textColor="#feeeee"
+        android:textSize="16dip"
+        android:gravity="center"
+        android:paddingRight="10dip"
+        android:background="@drawable/chatto_bg_normal"
+        android:drawableRight="@drawable/chatto_voice_playing"
+        />
+    
+    <TextView 
+        android:id="@+id/tv_right_audio_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/btn_right_audio"
+        android:textColor="#aaaaaa"
+        android:textSize="16dip"
+        android:gravity="center"
+        android:text="一个字符显示框"
+        />
+    
 </LinearLayout>
