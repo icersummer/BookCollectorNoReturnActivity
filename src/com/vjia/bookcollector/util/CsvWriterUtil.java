@@ -51,6 +51,7 @@ public class CsvWriterUtil {
 		boolean fileExisted = isExistedInAppFiles(fileName, activity);
 		if (fileExisted)
 			Log.d(CLASSNAME, "File is already existed : " + fileName );
+		
 		String fileContent = getFileContentInPropertiesFormat(book);
         try {  
             /* 根据用户提供的文件名，以及文件的应用模式，打开一个输出流.文件不存系统会为你创建一个的， 
@@ -180,7 +181,7 @@ public class CsvWriterUtil {
 	private static String getFileContentInPropertiesFormat(BookEntity book) {
 		// TODO Auto-generated method stub
 		StringBuffer bookInfo = new StringBuffer();
-		bookInfo.append("title1,title2,title3,title4\n");
+//		bookInfo.append("title1,title2,title3,title4\n");
 		String headerLine = "";
 		String bodyLine = "";
 		
@@ -195,9 +196,14 @@ public class CsvWriterUtil {
 				// TODO to cast them
 				Class clazz = field.getDeclaringClass();
 
-				headerLine += fieldName + ",";
+				headerLine += fieldName.toUpperCase() + ",";
 //				if(value != null) {
-					bodyLine += String.valueOf(value) + ",";					
+					// value may be in format "value1, value2", e.g. the author tag; so replace comma ',' with '**'
+					String strValue = String.valueOf(value);
+					if(value != null) {
+						strValue = strValue.replaceAll(",", "**");
+					}
+					bodyLine += strValue + ",";			
 //				}
 			} catch (IllegalArgumentException e) {
 				// TODO Auto-generated catch block
