@@ -1,26 +1,51 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" 
     android:background="@drawable/chatting_bg_default"
     >
     
-    
     <!-- Lable of 'Title: Book info collector' -->
-
+    
     <TextView
         android:id="@+id/main2_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textColor="#404040"
+        android:layout_marginTop="20sp"
+        android:layout_marginBottom="20sp"
         android:text="Title:Book Info Collector" />
-
-    <!-- button to start MipcaActivity to scan -->
-
-    <Button
-        android:id="@+id/main2_start_scan"
-        android:layout_width="match_parent"
+    
+    <ImageView
+        android:id="@+id/iv_icon"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Scan the QR code" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="5dip"
+        android:layout_below="@+id/main2_label"
+        android:src="@drawable/ic_launcher"
+         />
+    
+    <!-- button to start MipcaActivity to scan -->
+    <Button 
+        android:id="@+id/main2_start_scan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/iv_icon"
+        android:layout_marginTop="5dip"
+        android:layout_marginBottom="5dip"
+        android:layout_below="@+id/main2_label"
+        android:textColor="#404040"
+        android:textSize="16dip"
+        android:gravity="center"
+        android:background="@drawable/chatfrom_bg_normal"
+        android:text="Scan the QR code"
+        />
+    
+
 
     <!-- button to show Stored Books' list info -->
 
@@ -28,13 +53,16 @@
         android:id="@+id/main2_show_booklist"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/main2_start_scan"
         android:text="Show All Books" />
 
     <!-- Label of showing Copyright -->
 
     <TextView
+        android:id="@+id/static_copyright_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/main2_show_booklist"
         android:text="Copyright : 2015 todo" />
     
     <!-- entrance to UI test layout -->
@@ -44,6 +72,7 @@
         android:layout_height="wrap_content"
         android:text="点击调试UI"
         android:layout_gravity="center_vertical"
+        android:layout_below="@+id/static_copyright_tv"
         />
     
     <!-- entrance to UI Relative Layout test   -->
@@ -53,6 +82,7 @@
         android:layout_height="wrap_content"
         android:text="点击查看Relative Layout UI"
         android:layout_gravity="center_vertical"
+        android:layout_below="@+id/ui_test_button"
         />
     
-</LinearLayout>
+</RelativeLayout>
