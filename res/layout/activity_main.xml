@@ -46,4 +46,13 @@
         android:layout_gravity="center_vertical"
         />
     
+    <!-- entrance to UI Relative Layout test   -->
+    <Button
+        android:id="@+id/ui_relative_layout_test_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="点击查看Relative Layout UI"
+        android:layout_gravity="center_vertical"
+        />
+    
 </LinearLayout>

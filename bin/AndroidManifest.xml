@@ -52,6 +52,8 @@
         
         <activity 
             android:name="com.vjia.bookcollector.UITestActivity" />
+        <activity 
+            android:name="com.vjia.bookcollector.UiRelativeLayoutTestActivity" />
         
     </application>
     

@@ -65,6 +65,18 @@ public class MainActivity extends Activity {
 				startActivity(intent);
 			}
 		});
+		
+
+		// test button to go to UI Relative layout
+		Button ui_relative_layout_test_button = (Button) findViewById(R.id.ui_relative_layout_test_button);
+		ui_relative_layout_test_button.setOnClickListener(new OnClickListener(){
+			@Override
+			public void onClick(View arg0) {
+				Intent intent = new Intent();
+				intent.setClass(MainActivity.this, UiRelativeLayoutTestActivity.class);
+				startActivity(intent);
+			}
+		});
 	}
 	
 
