@@ -56,9 +56,41 @@
         android:drawableLeft="@drawable/chatfrom_group_voice_playing_f3"
         android:text="Button4" />
 
-    <Button
-        android:id="@+id/button5"
+    <TextView
+        android:id="@+id/tv_time_tip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:background="@drawable/chatsystem_bg"
+        android:textColor="#404040"
+        android:textSize="13dip"
+        android:gravity="center"        
+        android:text="两会召开哈哈哈"
+        />
+    <Button
+        android:id="@+id/btn_right_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/iv_icon"
+        android:layout_marginTop="5dip"
+        android:layout_marginBottom="5dip"
+        android:textColor="#404040"
+        android:textSize="16dip"
+        android:gravity="center"
+        android:background="@drawable/chatto_bg_normal"
+        android:text="哈哈 哈" 
+        />
+    
+    <ImageView 
+        android:id="@+id/iv_right_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/iv_icon"
+        android:layout_marginTop="5dip"
+        android:layout_marginBottom="5dip"
+        android:textColor="#404040"
+        android:textSize="16dip"
+        android:padding="3dip"
+        android:gravity="center"
+        android:background="@drawable/chatto_bg_normal"
+        />
 </LinearLayout>
