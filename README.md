@@ -14,3 +14,9 @@ QR scan实现参考自代码：http://dldx.csdn.net/fd.php?i=428159902193072&s=0
 
 how to set android:gravity, refer http://blog.csdn.net/aminfo/article/details/7784229
 
+20170613
+==
+Note: current this project is created and edited using Eclipse with Android-plugin installed.
+
+I am trying to learn how to develop Android project using Android Studio.
+
